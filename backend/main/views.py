@@ -44,7 +44,7 @@ def search_courses(request):
     # try:
     # print('a'+ query + 'a')
     if query != '':
-        lookups= Q(name__icontains=query) | Q(description__icontains=query)
+        lookups= Q(title__icontains=query) | Q(description__icontains=query) | Q(category__icontains=query)
         data_list= Course.objects.filter(lookups) # .distinct()
         data_list = [ model_to_dict(ele) for ele in data_list]
     else:

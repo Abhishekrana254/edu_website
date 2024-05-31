@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import SearchResuls from './searchResults';
+import Compare from './compare';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -32,8 +33,8 @@ const router = createBrowserRouter([
     ]
   },
   {
-    // path: "searchresults",
-    // element: <SearchResuls />
+    path: "/compare",
+    element: <Compare />
   },
 ]);
 

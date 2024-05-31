@@ -25,7 +25,9 @@ SECRET_KEY = "django-insecure-_*-0z*@hc--v1-5zqdng*ila^52o8ocr@=ln9nf2$)i)z2ufjt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "*"]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    'corsheaders',
     "main"
 ]
 
@@ -48,6 +52,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
+    'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = "backend.urls"
@@ -116,3 +123,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000", "https://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com/", "http://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com/", "https://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com", "http://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com"
+]
+
+import dj_database_url
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
