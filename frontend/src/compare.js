@@ -4,7 +4,7 @@ import './compare.css';
 import axios from 'axios';
 
 function Compare(props) {
-  
+
   const location = useLocation();
 
   // if (location.state) {
@@ -46,7 +46,7 @@ function Compare(props) {
   // Function to handle searching for courses
   const searchCourses = (query) => {
     // Implement course search logic here
-    // get couses from ajax request 
+    // get couses from ajax request
     console.log('in search course', { "query": query} );
     axios.post(BASE_URL + 'main/search_courses/', { "query": query} )
       .then(response => {

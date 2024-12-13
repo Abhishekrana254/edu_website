@@ -21,9 +21,11 @@ function App() {
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
+
+  // const BASE_URL = "http://127.0.0.1:8000/"
   const BASE_URL = "https://eduwebsiteapi-2a7413d5add2.herokuapp.com/"
   const search = () => {
-    // ajax request to backend and send in the searchParams 
+    // ajax request to backend and send in the searchParams
 
     axios.post(BASE_URL + 'main/search_courses/', { "query": inputValue} )
       .then(response => {
@@ -36,10 +38,10 @@ function App() {
         // setPosts(formattedData);
         console.log('response', response);
         // setCourses(updatedCourses);
-        // results in here 
+        // results in here
 
         // navigate('/searchresults');
-        // use this inputValue as query to get results from the ajax request 
+        // use this inputValue as query to get results from the ajax request
         console.log('Input value:', inputValue);
 
         const results = [{
@@ -49,34 +51,34 @@ function App() {
           description: "This course is Quantum computing combined with artificial intelligence provided by the leading faculties in the country",
           provider: 'Times Now',
           duration: 7,
-          price: 69.99, 
+          price: 69.99,
           rating: 4.3
-        }, { 
+        }, {
           id: 2,
-          title: 'Python Programming', 
+          title: 'Python Programming',
           category: "Programming Languages",
           description: "",
-          provider: 'Coursera', 
-          duration: 6, 
-          price: 49.99, 
-          rating: 4.5 
-        }, { 
+          provider: 'Coursera',
+          duration: 6,
+          price: 49.99,
+          rating: 4.5
+        }, {
           id: 3,
           title: 'Machine Learning',
           category: "Data Science and Machine Learning",
           description: "",
-          provider: 'edX', 
-          duration: 8, 
-          price: 79.99, 
-          rating: 4.2 
-        }, { 
+          provider: 'edX',
+          duration: 8,
+          price: 79.99,
+          rating: 4.2
+        }, {
           id: 4,
-          title: 'Web Development Bootcamp', 
+          title: 'Web Development Bootcamp',
           category: "Web Development",
           description: "",
-          provider: 'Udemy', 
-          duration: 10, 
-          price: 29.99, 
+          provider: 'Udemy',
+          duration: 10,
+          price: 29.99,
           rating: 4.7 }]
 
         navigate('/searchresults', { state: { searchResultsList: response.data.data_list } });
@@ -89,7 +91,7 @@ function App() {
       });
 
 
-    
+
   }
 
   return (
@@ -163,14 +165,14 @@ function App() {
                 onChange={handleInputChange}
                 className='h-12 rounded-full w-full'
             />
-            <button onClick={() => search()} 
+            <button onClick={() => search()}
                 className='rounded-full absolute  right-0'>
                   Search</button>
           </div>
 
        </div>
-         
-         
+
+
          {/* <Link to="/searchresults"> Search</Link> */}
          {/* query params here  */}
          {/* after that find a way to call backend and get data for rendering that component */}
@@ -186,17 +188,17 @@ function App() {
         </Route>
       </switch>
     </Routes> */}
-    
+
     {/*
      <div class="relative flex items-center h-19 mb-5 pb-5" style={{border:'2px solid red'}}>
       <img src={test} className='w-21 h-20 '/>
       <div className=''>
-        <strong>Andrew Alfred</strong> <br/> 
+        <strong>Andrew Alfred</strong> <br/>
         <span>Technical advisor</span>
       </div>
     </div>
     */}
-   
+
 
     <Outlet />
 

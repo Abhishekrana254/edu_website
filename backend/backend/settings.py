@@ -126,7 +126,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000", "https://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com/", "http://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com/", "https://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com", "http://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com"
+    "http://localhost:3000"#, "https://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com/", "http://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com/", "https://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com", "http://obscure-coast-11466-bfc76e7a6b0e.herokuapp.com"
 ]
 
 import dj_database_url
